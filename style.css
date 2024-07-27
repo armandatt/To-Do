@@ -1,0 +1,40 @@
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0%;
+    text-shadow:turquoise;
+    text-decoration: underline;
+    text-decoration-color: aqua;
+}
+
+.tittle{
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    box-sizing: content-box;
+    width: 25%;
+
+}
+
+.description{
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    margin-left: 4px;
+    box-sizing: content-box;
+    width: 25%;
+
+}
+
+.add{
+    border-radius: 5px;
+    border-style: dotted;
+    margin: 5px;
+    padding: 3px;
+    box-shadow: 50px;
+    cursor: pointer;
+    box-sizing: content-box;
+    width: 7%;
+}
+

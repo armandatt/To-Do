@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do~AK$HAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        let globalId = 1;
+
+        function markasdone(todoId){
+            // alert("you done this shit!!!!!")
+
+            const cchild = document.createElement('div')
+            console.log(todoId)
+            const parents = document.getElementById(todoId);
+            const tittle_data = parents.children[0].innerHTML;
+            const desc_data = parents.children[1].innerHTML;
+
+            parents.children[2].innerHTML = "DONE!!";
+
+            const grandcchild = document.createElement("div")
+            grandcchild.innerHTML = `<h4>${tittle_data}</h4> `
+            cchild.appendChild(grandcchild)
+
+            const grandcchild1 = document.createElement('div')
+            grandcchild1.innerHTML = `${desc_data}`
+            cchild.appendChild(grandcchild1)
+
+            const gparent = document.getElementById("DONE_TASK")
+            gparent.appendChild(cchild)
+            
+            const hr = document.createElement("hr")
+            cchild.appendChild(hr)
+            
+
+        }
+
+        function createchild(tittle , description , id){
+            const child = document.createElement('div')
+            child.setAttribute("id" , id);
+
+            const grandchild = document.createElement("div")
+            grandchild.innerHTML = `<h4>${tittle}</h4> `
+            child.appendChild(grandchild)
+
+            const grandchild1 = document.createElement('div')
+            grandchild1.innerHTML = `${description} <br><br>`
+            child.appendChild(grandchild1)
+
+            const grandchild2 = document.createElement("button")
+            grandchild2.innerHTML = "Mark As Done"
+            grandchild2.setAttribute("onclick" , `markasdone(${id})`)
+            child.appendChild(grandchild2)
+
+            const hr = document.createElement("hr")
+            child.appendChild(hr)
+
+            return child 
+        }
+
+        function ADD_TASK() {
+            const tittle = document.getElementById("tittle").value;
+            const description = document.getElementById("description").value;
+            const parent = document.getElementById("To-Do")
+            // document.getElementById("ALL_TASK").innerHTML = task
+            // document.getElementById("ALL_TASK").innerHTML += " #   " + tittle + "\n\n\n\n\n\n\n" + "<button onclick = 'DONE_TASK()' id='DONE'>DONE</button>" +  "<hr>" 
+            parent.appendChild(createchild(tittle , description , globalId++))
+        }
+    </script>
+
+    <br> 
+    <h1 class="heading">To-Do App ~ AK$HAR!!!</h1>
+    <input id="tittle" class="tittle" type="text" placeholder="enter your tittle here">
+    <br>
+    <br>
+    <input id="description" class="description" type="text" placeholder="enter your description here">
+    <br>
+    <br>
+    <button onclick="ADD_TASK()" id="add" class="add"> ADD TASK</button>
+    <br>
+    <br>
+    <hr>
+    <h3>YOUR TASKS ARE LISTED BELOW:-</h3>
+    <div id="To-Do"></div>
+    <br>
+    <hr>
+    <h3>TASK THOSE YOU COMPLETED:-</h3>
+    <div id="DONE_TASK"></div>
+    
+</body>
+</html>
